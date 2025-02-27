@@ -27,12 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-
+//filter ต่างๆ เขียนโค้ดในนนี้
 document.addEventListener("DOMContentLoaded", () => {
-
-
-  
- 
 
 
     const slider = document.getElementById("priceRange");
@@ -66,10 +62,26 @@ document.addEventListener("DOMContentLoaded", () => {
         reloadPage();
     });
 
+    btnReset.addEventListener('click', (e) => {
+        location.href = "approve_page.php";
+    });
+
     objMinPriceRange.addEventListener('input', (e) => {
         console.clear();
         console.log("minPriceRange", objMinPriceRange.value);
            
+    });
+
+    objMaxPriceRange.addEventListener('input', (e) => {
+        console.clear();
+        console.log("maxPriceRange", objMaxPriceRange.value);
+           
+    });
+
+    objEquipMentFilterList.addEventListener('change', (e) => {
+        console.clear();
+        console.log("equipment-filter-list", objEquipMentFilterList.value);
+
     });
 
     const reloadPage = ()=>{
@@ -79,17 +91,12 @@ document.addEventListener("DOMContentLoaded", () => {
         let minPriceRange = objMinPriceRange.value;
         let maxPriceRange = objMaxPriceRange.value;
         let equipmentFilter = objEquipMentFilterList.value;
-        
         let startDate = objStartDate.value;
         let endDate = objEndDate.value;
         
 
         console.log(minPriceRange, maxPriceRange);
-       
-        //www.test.com/approve_page.php?a=1&b=2
         
-       
-
         // alt + 96  `
         window.location.href = 'approve_page.php?' + 
         `start_date=${startDate}` + 
@@ -98,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `&order_quantity=${filterPrice}`+
         `&min_price=${minPriceRange}` +
         `&max_price=${maxPriceRange}`+
-        `&=equipment-filter-list${equipmentFilter}`; 
+        `&equipment_type=${equipmentFilter}`; 
     }
 
 });
