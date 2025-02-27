@@ -84,6 +84,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
+    objfilterQuantityList.addEventListener('change', (e) => {
+        console.clear();
+        console.log("filter-quantity-list", objfilterQuantityList.value);
+    });
+
     const reloadPage = ()=>{
       
         let filterValue = objfilterQuantityList.value;
@@ -102,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `start_date=${startDate}` + 
         `&end_date=${endDate}` +
         `&order_quantity=${filterValue}` +
-        `&order_quantity=${filterPrice}`+
+        `&order_price=${filterPrice}`+
         `&min_price=${minPriceRange}` +
         `&max_price=${maxPriceRange}`+
         `&equipment_type=${equipmentFilter}`; 
